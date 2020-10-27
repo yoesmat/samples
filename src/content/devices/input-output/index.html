@@ -66,7 +66,12 @@
     </div>
     
     <div class="select">
-        <label for="videoRes">Video resolution: </label><select id="videoRes"></select>
+        <label for="videoRes">Video resolution: </label><select id="videoRes">
+            <option value="qvga">QVGA</option>
+            <option value="vga">VGA</option>
+            <option value="hd">HD</option>
+            <option value="full-hd">Full HD</option>
+        </select>
     </div>
 
     <video id="video" playsinline autoplay></video>
