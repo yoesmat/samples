@@ -101,6 +101,8 @@ function start() {
     audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
+  constraints.video.wdith = {exact: 320};
+  constraints.video.height = {exact: 240};
   if (videRes == 'qvga') {
     constraints.video.wdith = {exact: 320};
     constraints.video.height = {exact: 240};
@@ -121,5 +123,6 @@ audioInputSelect.onchange = start;
 audioOutputSelect.onchange = changeAudioDestination;
 
 videoSelect.onchange = start;
+videoResSelect.onchange = start;
 
 start();
