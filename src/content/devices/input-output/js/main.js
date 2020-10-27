@@ -101,19 +101,19 @@ function start() {
     audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
-  constraints.video.wdith = {exact: 320};
+  constraints.video.width = {exact: 320};
   constraints.video.height = {exact: 240};
   if (videRes == 'qvga') {
-    constraints.video.wdith = {exact: 320};
+    constraints.video.width = {exact: 320};
     constraints.video.height = {exact: 240};
   } else if (videRes == 'vga') {
-    constraints.video.wdith = {exact: 640};
+    constraints.video.width = {exact: 640};
     constraints.video.height = {exact: 480};
   } else if (videRes == 'hd') {
-    constraints.video.wdith = {exact: 1280};
+    constraints.video.width = {exact: 1280};
     constraints.video.height = {exact: 720};
   } else if (videRes == 'full-hd') {
-    constraints.video.wdith = {exact: 1920};
+    constraints.video.width = {exact: 1920};
     constraints.video.height = {exact: 1080};
   }
   navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
