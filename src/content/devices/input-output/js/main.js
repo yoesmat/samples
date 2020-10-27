@@ -12,7 +12,8 @@ const videoElement = document.querySelector('video');
 const audioInputSelect = document.querySelector('select#audioSource');
 const audioOutputSelect = document.querySelector('select#audioOutput');
 const videoSelect = document.querySelector('select#videoSource');
-const selectors = [audioInputSelect, audioOutputSelect, videoSelect];
+const videoResSelect = document.querySelector('select#videoRes');
+const selectors = [audioInputSelect, audioOutputSelect, videoSelect, videoResSelect];
 
 audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
 
@@ -95,10 +96,24 @@ function start() {
   }
   const audioSource = audioInputSelect.value;
   const videoSource = videoSelect.value;
-  const constraints = {
+  const videoRes = videoResSelect.value;
+  var constraints = {
     audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
-    video: {deviceId: videoSource ? {exact: videoSource} : undefined, width: {exact: 320}, height: {exact: 240}}
+    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
+  if (videRes == 'qvga') {
+    constraints.video.wdith = {exact: 320};
+    constraints.video.height = {exact: 240};
+  } else if (videRes == 'vga') {
+    constraints.video.wdith = {exact: 640};
+    constraints.video.height = {exact: 480};
+  } else if (videRes == 'hd') {
+    constraints.video.wdith = {exact: 1280};
+    constraints.video.height = {exact: 720};
+  } else if (videRes == 'full-hd') {
+    constraints.video.wdith = {exact: 1920};
+    constraints.video.height = {exact: 1080};
+  }
   navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
 }
 
