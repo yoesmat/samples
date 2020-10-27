@@ -103,16 +103,16 @@ function start() {
   };
   constraints.video.width = {exact: 320};
   constraints.video.height = {exact: 240};
-  if (videRes == 'qvga') {
+  if (videoRes == 'qvga') {
     constraints.video.width = {exact: 320};
     constraints.video.height = {exact: 240};
-  } else if (videRes == 'vga') {
+  } else if (videoRes == 'vga') {
     constraints.video.width = {exact: 640};
     constraints.video.height = {exact: 480};
-  } else if (videRes == 'hd') {
+  } else if (videoRes == 'hd') {
     constraints.video.width = {exact: 1280};
     constraints.video.height = {exact: 720};
-  } else if (videRes == 'full-hd') {
+  } else if (videoRes == 'full-hd') {
     constraints.video.width = {exact: 1920};
     constraints.video.height = {exact: 1080};
   }
